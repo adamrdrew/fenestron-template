@@ -22,7 +22,6 @@ function createWindow () {
     frame: false,
     menu: false,
     webPreferences: {
-      webSecurity: false,
       nodeIntegration: true
   } })
 
