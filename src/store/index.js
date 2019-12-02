@@ -5,6 +5,10 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    theme: {
+      accentColor: '#231223',
+      isDarkMode: false
+    }
   },
   mutations: {
   },
