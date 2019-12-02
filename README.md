@@ -33,7 +33,20 @@ Here's what you will have after installing and getting set up:
 * VueX and Vue Router pre-configured
 * Windows 10 user preferences in your VueX store
 * Typography and iconography via Office Fabric UI Core
+* StandardJS linting
 * A basic Hello World Fenestron app
+
+## Running and Building
+Run your app with dev tools:
+
+```
+npm run electron:serve
+```
+Build an executable and installer:
+```
+npm run electron:build
+```
+
 
 ## FAQ
 * Q: Why do I need Visual Studio Community?
@@ -50,3 +63,8 @@ Here's what you will have after installing and getting set up:
 
 * Q. Can I submit my app made with this to the Window Store?
     * A. Yes, but with some extra effort. You need to convert it to an appx package first. Future versions of this template will include more information and documentation on that. For now, just search for "electron windows store."
+
+# Known Issues
+Vue Dev Tools doesn't work in Electron with Windows 10 dark mode enabled. Weird, right? [See this issue](https://github.com/electron/electron/issues/19468)
+
+This template ships with dev tools enabled because the benefit of dev tools far outweighs dark mode support. Disable dark mode to work on this until that issue is closed.
