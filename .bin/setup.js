@@ -8,6 +8,8 @@ const fs = require('fs')
 const readline = require('readline')
 const exec = require('child_process').exec
 
+const appName = process.argv[2]
+
 // I originally used replace-in-file but then I realized I shouldn't
 // use any dependencies for this, so I wrote this method to respond
 // to the sync method
@@ -53,17 +55,15 @@ class Tasks {
   }
 
   changeAppName () {
-    const rl = readline.createInterface({
-      input: process.stdin,
-      output: process.stdout
-    })
-    rl.question('What do you want to call your app?', (answer) => {
-      const replace = new Replace()
-      replace.sync({
-        files: 'package.json',
-        from: 'app-name-before-setup',
-        to: answer
-      })
+    if ( typeof(appName) === 'undefined' ) {
+      console.log("Please provide an app name")
+      process.exit(1)
+    }
+    const replace = new Replace()
+    replace.sync({
+      files: 'package.json',
+      from: 'app-name-before-setup',
+      to: appName
     })
   }
 
