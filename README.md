@@ -14,13 +14,16 @@ We're going to assume you're working on Windows. Most everything here is cross p
 * Git
 
 ## Installation
-Installation is simply a matter of cloning this project and then making it your own:
+Installation is simply a matter of cloning this project and running setup:
 1. Clone this repo
-2. Remove the git repo: `rmdir .git /S`
-3. Init your own: `git init`
-4. Change the package name and version in `package.json`
-5. Install: `npm install`
-6. Delete this README
+2. Run the setup script and provide a name for your app:
+
+```
+> npm run setup mycoolappname
+```
+*Note: The app name you provide will be used in package.json, so you need to provide a name that obeys those naming conventions. All lowercase, no spaces, etc.*
+
+The setup script removes the template files like readme and license, renames the app, creates a new git repo, and installs deps. When setup is done you can get to developing!
 
 ## What's In The Box
 Here's what you will have after installing and getting set up:

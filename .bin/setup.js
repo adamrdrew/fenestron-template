@@ -53,7 +53,7 @@ class Tasks {
     const replace = new Replace()
     replace.substring({
       file: 'package.json',
-      from: 'app-name-before-setup',
+      from: 'fenestron-template',
       to: appName
     })
   }
