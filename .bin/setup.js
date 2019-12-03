@@ -43,17 +43,13 @@ class Tasks {
   }
 
   deleteReadMe () {
-    fs.rm('README.md', (err) => {
-      if (err) throw err
-      console.log('README deleted')
-    })
+    fs.unlinkSync('README.md')
+    console.log('README deleted')
   }
 
   deleteLicense () {
-    fs.rm('LICENSE', (err) => {
-      if (err) throw err
-      console.log('LICENESE deleted')
-    })
+    fs.unlinkSync('LICENSE')
+    console.log('LICENESE deleted')
   }
 
   changeAppName () {
