@@ -51,6 +51,6 @@
     }
   },
   "browserslist": [
-    "electron >= 6.0" 
+    "electron >= 6.0"
   ]
 }
