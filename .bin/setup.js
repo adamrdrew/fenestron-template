@@ -1,7 +1,8 @@
 /*
 This is the Fenestron Template new project init script.
-This script is intended for single use. If you stumbled upon it in
-your repo you are welcome to delete it :)
+This script is intended for single use. It should have
+removed itself after setup. If it didn't would you mind
+being a dear and reporting an issue? ❤ A
 */
 
 const fs = require('fs')
@@ -11,8 +12,7 @@ const exec = require('child_process').exec
 const appName = process.argv[2]
 
 // I originally used replace-in-file but then I realized I shouldn't
-// use any dependencies for this, so I wrote this method to respond
-// to the sync method
+// use any dependencies for this, so I wrote this lil class
 class Replace {
   substring (opts) {
     var contents = fs.readFileSync(opts.file).toString()
