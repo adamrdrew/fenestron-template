@@ -65,7 +65,7 @@ class Tasks {
       const replace = new Replace()
       replace.sync({
         files: 'package.json',
-        from: 'appnamebeforesetup',
+        from: 'app-name-before-setup',
         to: answer
       })
     })
