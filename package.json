@@ -1,5 +1,5 @@
 {
-  "name": "xedit",
+  "name": "Some Great App",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -14,7 +14,7 @@
   "main": "background.js",
   "dependencies": {
     "core-js": "^3.4.3",
-    "fenestron-ui": "file:../fenestron-ui",
+    "fenestron-ui": "0.0.2-alpha",
     "office-ui-fabric-core": "^11.0.0",
     "vue": "^2.6.10",
     "vue-router": "^3.1.3",

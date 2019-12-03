@@ -74,3 +74,9 @@ This template ships with dev tools enabled because the benefit of dev tools far 
 * [Visual Studio Community](https://visualstudio.microsoft.com/vs/community/)
 * [Node](https://nodejs.org/en/download/)
 * 
+
+## Future Inclusion
+These are links to things we haven't included yet but are considering in the future:
+* [VueX Electron](https://github.com/vue-electron/vuex-electron) - Note: This isn't included yet, but I'm considering it going forward. Need to play with it first.
+* [NEDB](https://github.com/louischatriot/nedb) - Popular Javascript database
+* [Vue Testing](https://vue-test-utils.vuejs.org/)

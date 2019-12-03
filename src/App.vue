@@ -1,8 +1,9 @@
 <template lang="pug">
 .frame
   TitleBar(:back-button="true", title="Title Bar Example")
-  SplitView(display-mode="overlay", :title-bar-offset="true")
+  SplitView(display-mode="inline", :title-bar-offset="true")
     template(v-slot:pane="slotProps")
+      PaneButton(navigate="home", icon="Home", title="Home")
     template(v-slot:content)
       transition(name="page-slide-up")
         router-view
