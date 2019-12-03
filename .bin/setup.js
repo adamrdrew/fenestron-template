@@ -37,13 +37,6 @@ class Shell {
 }
 
 class Tasks {
-  deleteGit () {
-    fs.rmdir('.git', (err) => {
-      if (err) throw err
-      console.log('.git deleted')
-    })
-  }
-
   deleteReadMe () {
     fs.unlinkSync('README.md')
     console.log('README deleted')
@@ -73,6 +66,9 @@ class Tasks {
     if (gitConfig.indexOf(shibboleth) === -1) {
       throw new Error("Git config doesn't look like the Fenestron Template. Not running to avoid doing damage.")
     }
+  }
+
+  deleteGit () {
     fs.rmdirSync('.git', {recursive: true})
     console.log('template git repo deleted')
   }
