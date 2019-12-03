@@ -14,13 +14,11 @@ const appName = process.argv[2]
 // use any dependencies for this, so I wrote this method to respond
 // to the sync method
 class Replace {
-  sync (opts) {
-    var contents = fs.readFileSync(opts.files, (err) => {
-      if (err) throw err
-    })
+  substring (opts) {
+    var contents = fs.readFileSync(opts.file).toString()
     if (contents.indexOf(opts.from) === -1) return
     const res = contents.replace(opts.from, opts.to)
-    fs.writeFileSync(opts.files, res, (err) => {
+    fs.writeFileSync(opts.file, res, (err) => {
       if (err) throw err
     })
   }
@@ -39,22 +37,22 @@ class Shell {
 class Tasks {
   deleteReadMe () {
     fs.unlinkSync('README.md')
-    console.log('README deleted')
+    console.log('Setup: README deleted. 📑')
   }
 
   deleteLicense () {
     fs.unlinkSync('LICENSE')
-    console.log('LICENESE deleted')
+    console.log('Setup: LICENESE deleted. ⚖')
   }
 
   changeAppName () {
     if ( typeof(appName) === 'undefined' ) {
-      console.log("Please provide an app name")
+      console.log("Setup: Please provide an app name. 📛")
       process.exit(1)
     }
     const replace = new Replace()
-    replace.sync({
-      files: 'package.json',
+    replace.substring({
+      file: 'package.json',
       from: 'app-name-before-setup',
       to: appName
     })
@@ -70,25 +68,25 @@ class Tasks {
 
   deleteGit () {
     fs.rmdirSync('.git', {recursive: true})
-    console.log('template git repo deleted')
+    console.log('Setup: Template git repo deleted. 🗂')
   }
 
   initGit () {
     const shell = new Shell()
-    shell.exec('git init ; git add -A ; git commit -am "Fenestron Template: Init"')
-    console.log('git initialized')
+    shell.exec('git init & git add -A & git commit -am "Fenestron Template: Init"')
+    console.log('Setup: Git repo initialized. 🗃')
   }
 
-  installDeps () {
+  installDeps (callback) {
     const shell = new Shell()
-    shell.exec('npm install')
-    console.log('deps installed')
+    console.log('Setup: Installing deps... ⛓')
+    shell.exec('npm install', callback)
+    
   }
 
   deleteMyself () {
-    fs.rmdirSync('.bin', (err) => {
-      if (err) throw err
-    })
+    fs.rmdirSync('.bin', {recursive: true})
+    console.log('Setup: Deleting setup resources. ♻')
   }
 
 }
@@ -102,8 +100,12 @@ try {
   tasks.deleteReadMe()
   tasks.deleteMyself()
   tasks.initGit()
-  tasks.installDeps()
+  tasks.installDeps((err) => {
+    if (err) throw err
+    console.log("Setup: Done. Thank you for flying Fenestron. ✈")
+    process.exit(0)
+  })
 } catch (err) {
-  console.log(`Something went wrong:\n${err}`)
+  console.log(`Setup: Something went wrong:\n${err}`)
   process.exit(1)
 }
