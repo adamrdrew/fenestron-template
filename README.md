@@ -2,7 +2,7 @@
 
 
 # Fenestron Project Template
-This is a project template for getting a new Fenestron app bootstrapped quickly and easily. Right now this template is a provided as a repo that you clone and then start using to build your app. We'd like to eventually offer a preset or plugin via Vue CLI that you can install, but that's a little way's off. This repo contains a perfectly valid and normal Vue CLI project.
+This is a project template for getting a new [Fenestron](https://github.com/adamrdrew/fenestron-ui) app bootstrapped quickly and easily. Right now this template is a provided as a repo that you clone and then start using to build your app. We'd like to eventually offer a preset or plugin via Vue CLI that you can install, but that's a little way's off. This repo contains a perfectly valid and normal Vue CLI project.
 
 There is nothing new or novel in this template that you couldn't do yourself. The hard work was done by the wonderful Electron, Vue, and Electron Vue Builder communities along with all of the other people who have contributed to the projects we're pulling in here. The only thing we've done is tweak the output of the Vue Electron Builder project creation script to include Fenestron UI, a basic example UI built on Fenestron UI, and some project defaults and config that we recommend for a Fenestron app. Other than Fenestron UI nothing here is original work; this template is simply a convenience to help get going faster.
 
@@ -32,7 +32,7 @@ The setup script removes the template files like readme and license, renames the
 Here's what you will have after installing and getting set up:
 * A standard Vue CLI project
 * Electron building and bootstrapping thanks to electron-builder and vue electron builder
-* Fenestron UI, our front end framework for Windows 10 apps on Electron and Vue
+* [Fenestron UI](https://github.com/adamrdrew/fenestron-ui), a front end framework for Windows 10 apps on Electron and Vue
 * Pug for nicer templates
 * Vue Dev Tools
 * Electron pre-configured for sane defaults and better Windows 10 integration
@@ -52,7 +52,10 @@ Build an executable and installer:
 ```
 npm run electron:build
 ```
+## Next Steps
+Head over to the [Fenestron UI](https://github.com/adamrdrew/fenestron-ui) repo to learn more about Fenestron UI. There you can learn all about the various components that come with Fenestron UI and how to use them in your app.
 
+Have fun!
 
 ## FAQ
 * Q: Why do I need Visual Studio Community?
