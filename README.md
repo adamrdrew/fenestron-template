@@ -1,3 +1,6 @@
+<p align="center"><img src=".bin/images/fenestronLogo.jpg" alt="Fenestron logo"></a></p>
+
+
 # Fenestron Project Template
 This is a project template for getting a new Fenestron app bootstrapped quickly and easily. Right now this template is a provided as a repo that you clone and then start using to build your app. We'd like to eventually offer a preset or plugin via Vue CLI that you can install, but that's a little way's off. This repo contains a perfectly valid and normal Vue CLI project.
 
