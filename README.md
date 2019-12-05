@@ -85,7 +85,29 @@ After that you have to remember to run `npm run postinstall` after you install a
 
 That postinstall task will use electron-builder to rebuild the module for Electron. Your hint that you are running into the problems this section tells you how to solve is if your app crashes on start complaining that it can't find some dep you know you installed, or bombing out with node-gyp errors.
 
-*Note: As of this writing I can't get sqlite3 to work with Sequelizer after doing this. I'll ammend this project when or if I figure it out*
+### Modules That Load Native Deps
+You may run into a situation where you install a module that loads a native module. For example, if you use Sequelize with SQLite3 then the `sequelize` module will load the `sqlite3` module itself rather than you load it manually. This may result in an error like the following:
+
+```
+Error: Please install sqlite3 package manually
+    at ConnectionManager._loadDialectModule (webpack:///./node_modules/sequelize/lib/dialects/abstract/connection-manager.js?:81:15)
+    at new ConnectionManager (webpack:///./node_modules/sequelize/lib/dialects/sqlite/connection-manager.js?:22:21)        at new SqliteDialect (webpack:///./node_modules/sequelize/lib/dialects/sqlite/index.js?:14:30)
+    at new Sequelize (webpack:///./node_modules/sequelize/lib/sequelize.js?:324:20)
+```
+
+To resolve this create a `vue.config.js` file and add the following:
+
+```javascript
+module.exports = {
+    pluginOptions: {
+      electronBuilder: {
+        externals: ['sequelize']
+      }
+    }
+  }
+```
+
+In this case we're externalizing the `sequelize` module; put whatever module is calling you problems in there.
 
 ## Links
 * [Vue CLI](https://cli.vuejs.org/)
@@ -94,7 +116,6 @@ That postinstall task will use electron-builder to rebuild the module for Electr
 * [Windows Build Tools](https://www.npmjs.com/package/windows-build-tools)
 * [Visual Studio Community](https://visualstudio.microsoft.com/vs/community/)
 * [Node](https://nodejs.org/en/download/)
-* 
 
 ## Future Inclusion
 These are links to things we haven't included yet but are considering in the future:
