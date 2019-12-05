@@ -71,9 +71,21 @@ Have fun!
     * A. Yes, but with some extra effort. You need to convert it to an appx package first. Future versions of this template will include more information and documentation on that. For now, just search for "electron windows store."
 
 ## Known Issues
-Vue Dev Tools doesn't work in Electron with Windows 10 dark mode enabled. Weird, right? [See this issue](https://github.com/electron/electron/issues/19468)
+Vue Dev Tools doesn't work in Electron with Windows 10 dark mode enabled. Weird, right? [See this issue](https://github.com/electron/electron/issues/19468) This template ships with dev tools enabled because the benefit of dev tools far outweighs dark mode support. Disable dark mode to work on this until that issue is closed.
 
-This template ships with dev tools enabled because the benefit of dev tools far outweighs dark mode support. Disable dark mode to work on this until that issue is closed.
+## Native Deps
+If you need to use a module that has to be compiled, like sqlite / sqlite3, you have to do a little more leg work. You not only need Visual Studio installed, you need to have MSVC v140 installed. It's the Visual Studio 2015 dev kit / tools. Don't Panic. You don't need to go find some old installer or something. You can get what you need from Visual Studio 2019. Open the "Visual Studio Installer" and select "Modify" for 2019. Click on "Desktop Development with C++" and then scroll through the options on the right until you find MSVC v140. Click "Modify" in the lower right and it will install.
+
+After that you have to remember to run `npm run postinstall` after you install a native dependency. So, after you install sqlite3 for example:
+
+```
+> npm install --save sqlite3 
+> npm run postinstall
+```
+
+That postinstall task will use electron-builder to rebuild the module for Electron. Your hint that you are running into the problems this section tells you how to solve is if your app crashes on start complaining that it can't find some dep you know you installed, or bombing out with node-gyp errors.
+
+*Note: As of this writing I can't get sqlite3 to work with Sequelizer after doing this. I'll ammend this project when or if I figure it out*
 
 ## Links
 * [Vue CLI](https://cli.vuejs.org/)
