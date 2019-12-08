@@ -40,6 +40,7 @@ Here's what you will have after installing and getting set up:
 * Windows 10 user preferences in your VueX store
 * Typography and iconography via Office Fabric UI Core
 * StandardJS linting
+* Electron IPC Helper
 * A basic Hello World Fenestron app
 
 ## Running and Building
