@@ -117,6 +117,7 @@ In this case we're externalizing the `sequelize` module; put whatever module is 
 * [Windows Build Tools](https://www.npmjs.com/package/windows-build-tools)
 * [Visual Studio Community](https://visualstudio.microsoft.com/vs/community/)
 * [Node](https://nodejs.org/en/download/)
+* [Electron IPC Helper](https://github.com/adamrdrew/electron-ipc-helper)
 
 ## Future Inclusion
 These are links to things we haven't included yet but are considering in the future:
